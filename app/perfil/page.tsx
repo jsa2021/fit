@@ -13,10 +13,15 @@ export default function PerfilPage() {
   let value3;
   let value4;
 
+
+  if (typeof window !== 'undefined') {
   // Get the value from local storage if it exists
   value1 = localStorage.getItem("Nombre") || "";
   value2 = localStorage.getItem("Peso") || "";
   value3 = localStorage.getItem("Altura") || "";
+ }
+
+
 
   // Set the value received from the local storage to a local state
   const [Nombre, setNombre] = useState(value1);
