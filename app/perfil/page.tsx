@@ -17,14 +17,11 @@ export default function PerfilPage() {
   value1 = localStorage.getItem("Nombre") || "";
   value2 = localStorage.getItem("Peso") || "";
   value3 = localStorage.getItem("Altura") || "";
-  value4 = localStorage.getItem("CheckboxValue");
-  if(value4 !== null) value4 = JSON.parse(value4); // Convertir de cadena a booleano
 
   // Set the value received from the local storage to a local state
   const [Nombre, setNombre] = useState(value1);
   const [Peso, setPeso] = useState(value2);
   const [Altura, setAltura] = useState(value3);
-  const [CheckboxValue, setCheckboxValue] = useState(value4); // Valor por defecto false
 
   // When user submits the form, save the data to local storage
   const saveToLocalStorage = (e: { preventDefault: () => void; }) => {
@@ -32,7 +29,6 @@ export default function PerfilPage() {
     localStorage.setItem("Nombre", Nombre);
     localStorage.setItem("Peso", Peso);
     localStorage.setItem("Altura", Altura);
-    localStorage.setItem("CheckboxValue", JSON.stringify(CheckboxValue)); // Convertir a cadena antes de guardar
   };
 
   return (
@@ -67,23 +63,6 @@ export default function PerfilPage() {
             label="Peso"
             placeholder="Ingresa tu peso"
           />
-          <Divider className="my-4" />
-          <Input
-            id="peso"
-            value={CheckboxValue}
-            onChange={(e) => setPeso(e.target.value)}
-            type=""
-            label="Peso"
-            placeholder="Ingresa tu peso"
-          />
-          <Checkbox
-            id="CheckboxValue"
-            color="success"
-            isSelected={CheckboxValue}
-            onChange={(e) => setCheckboxValue(e.target.checked)}
-          >
-            1ra serie
-          </Checkbox>
           <Divider className="my-4" />
           <Button color="primary" type="submit">
             Guardar
