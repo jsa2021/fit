@@ -14,12 +14,11 @@ export default function PerfilPage() {
   let value4;
 
 
-  if (typeof window !== 'undefined') {
+
   // Get the value from local storage if it exists
-  value1 = localStorage.getItem("Nombre") || "";
-  value2 = localStorage.getItem("Peso") || "";
-  value3 = localStorage.getItem("Altura") || "";
- }
+  // value1 = localStorage.getItem("Nombre") || "";
+  // value2 = localStorage.getItem("Peso") || "";
+  // value3 = localStorage.getItem("Altura") || "";
 
 
 

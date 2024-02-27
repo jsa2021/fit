@@ -137,7 +137,7 @@ export default function FitPage() {
   let serie3;
   let serie4;
 
-  if (typeof window !== 'undefined') {
+
      // Get the value from local storage if it exists
   serie1 = localStorage.getItem("Serie1");
   if(serie1 !== null) serie1 = JSON.parse(serie1); // Convertir de cadena a booleano
@@ -147,7 +147,7 @@ export default function FitPage() {
   if(serie3 !== null) serie3 = JSON.parse(serie3); // Convertir de cadena a booleano
   serie4 = localStorage.getItem("Serie4");
   if(serie4 !== null) serie4 = JSON.parse(serie4); // Convertir de cadena a booleano
-  }
+
  
 
 
