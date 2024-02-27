@@ -130,48 +130,73 @@ export default function FitPage() {
     },
   ];
 
-
-  
+   
   let serie1;
   let serie2;
   let serie3;
   let serie4;
+  
+
+    // Set the value received from the local storage to a local state
+    const [Serie1, setSerie1] = useState(serie1|| false); // Valor por defecto false
+    const [Serie2, setSerie2] = useState(serie2|| false); // Valor por defecto false
+    const [Serie3, setSerie3] = useState(serie3|| false); // Valor por defecto false
+    const [Serie4, setSerie4] = useState(serie4|| false); // Valor por defecto false
 
 
-     // Get the value from local storage if it exists
-  serie1 = localStorage.getItem("Serie1");
-  if(serie1 !== null) serie1 = JSON.parse(serie1); // Convertir de cadena a booleano
-  serie2 = localStorage.getItem("Serie2");
-  if(serie2 !== null) serie2 = JSON.parse(serie2); // Convertir de cadena a booleano
-  serie3 = localStorage.getItem("Serie3");
-  if(serie3 !== null) serie3 = JSON.parse(serie3); // Convertir de cadena a booleano
-  serie4 = localStorage.getItem("Serie4");
-  if(serie4 !== null) serie4 = JSON.parse(serie4); // Convertir de cadena a booleano
+  if (typeof window !== 'undefined') {
+    console.log('You are on the browser')
+   
+  
 
- 
+  
+  
+       // Get the value from local storage if it exists
+    serie1 = localStorage.getItem("Serie1");
+    if(serie1 !== null) serie1 = JSON.parse(serie1); // Convertir de cadena a booleano
+    serie2 = localStorage.getItem("Serie2");
+    if(serie2 !== null) serie2 = JSON.parse(serie2); // Convertir de cadena a booleano
+    serie3 = localStorage.getItem("Serie3");
+    if(serie3 !== null) serie3 = JSON.parse(serie3); // Convertir de cadena a booleano
+    serie4 = localStorage.getItem("Serie4");
+    if(serie4 !== null) serie4 = JSON.parse(serie4); // Convertir de cadena a booleano
+  
+   
+  
+  
+  
+  
+  
+    // Set the value received from the local storage to a local state
+  
+  
+    useEffect(() => {
+      // Este efecto se ejecuta cada vez que 'count' cambia
+      localStorage.setItem("Serie1", JSON.stringify(Serie1));
+      localStorage.setItem("Serie2", JSON.stringify(Serie2));
+      localStorage.setItem("Serie3", JSON.stringify(Serie3));
+      localStorage.setItem("Serie4", JSON.stringify(Serie4));
+  
+      
+  
+  
+    }, [Serie1, Serie2, Serie3, Serie4]);
 
 
 
 
-  // Set the value received from the local storage to a local state
-  const [Serie1, setSerie1] = useState(serie1|| false); // Valor por defecto false
-  const [Serie2, setSerie2] = useState(serie2|| false); // Valor por defecto false
-  const [Serie3, setSerie3] = useState(serie3|| false); // Valor por defecto false
-  const [Serie4, setSerie4] = useState(serie4|| false); // Valor por defecto false
-  // Set the value received from the local storage to a local state
-
-
-  useEffect(() => {
-    // Este efecto se ejecuta cada vez que 'count' cambia
-    localStorage.setItem("Serie1", JSON.stringify(Serie1));
-    localStorage.setItem("Serie2", JSON.stringify(Serie2));
-    localStorage.setItem("Serie3", JSON.stringify(Serie3));
-    localStorage.setItem("Serie4", JSON.stringify(Serie4));
-
+  } else {
+    console.log('You are on the server')
     
 
 
-  }, [Serie1, Serie2, Serie3, Serie4]);
+
+
+
+  }
+
+
+  
 
 
 
